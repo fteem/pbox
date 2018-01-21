@@ -74,7 +74,8 @@ This will print out a table containing all of the active reminders:
 To add a new reminder, use:
 
 ```
-pillbox reminders add Antibiotics [--morning] [--afternoon] [--evening] ```
+pillbox reminders add Antibiotics [--morning] [--afternoon] [--evening]
+```
 
 This will set a reminder for `Antibiotics`, but it will require any of the three
 flags to be set. If any of the flags are not present, it will fail with:
