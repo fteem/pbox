@@ -71,3 +71,30 @@ This will print out a table containing all of the active reminders:
 +-------------+---------+-----------+---------+
 ```
 
+To add a new reminder, use:
+
+```
+pillbox reminders add Antibiotics [--morning] [--afternoon] [--evening] ```
+
+This will set a reminder for `Antibiotics`, but it will require any of the three
+flags to be set. If any of the flags are not present, it will fail with:
+
+```
+pillbox: error: Any (or all) of the --morning, --afternoon or --evening flags have to be present.
+```
+
+To remove a reminder, use:
+
+```
+pillbox reminders remove Antibiotics
+```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/fteem/pbox. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+
+## License
+
+The code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+
