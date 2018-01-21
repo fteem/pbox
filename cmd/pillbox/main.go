@@ -73,7 +73,8 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(reminders)
+		reporter := NewReporter(reminders)
+		fmt.Println(reporter.ToTable())
 	case reminderRemove.FullCommand():
 		var removed pillbox.Reminder
 		reminders, err := store.FetchReminders()
