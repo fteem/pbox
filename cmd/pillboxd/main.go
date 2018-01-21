@@ -27,7 +27,7 @@ var (
 )
 
 func main() {
-	notify.Alert("💊 Pillbox", "", "Hey there! 👋 I'll stick around and remind you when it's time to take your meds!", "assets/information.png")
+	notify.Notify("💊 Pillbox", "", "Hey there! 👋 I'll stick around and remind you when it's time to take your meds!", "assets/information.png")
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
