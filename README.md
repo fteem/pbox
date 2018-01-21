@@ -22,7 +22,7 @@ That should do it.
 
 ## Usage
 
-## Installation
+### Installation
 
 To install the `pillboxd` daemon, you need to run:
 
@@ -31,4 +31,38 @@ pillbox install
 ```
 
 This will create a new `launchd` agent for your user, which will manage the state
-of the daemon.
+of the daemon. The Property List (`.plist`) file will be located at `~/Library/LaunchAgent/com.ieftimov.pillbox.plist`.
+
+There's no need to load the agent since the command will take care of that.
+Post-install you should receive a notification that the daemon is started.
+
+### Uninstallation
+
+To completely remove the daemon you can run:
+
+```
+pillbox uninstall
+```
+
+That's it, no more reminders!
+
+### Reminders management
+
+To list all reminders, use:
+
+```
+pillbox reminders list
+```
+
+This will print out a table containing all of the active reminders:
+
+```
++-------------+---------+-----------+---------+
+| Name        | Morning | Afternoon | Evening |
++-------------+---------+-----------+---------+
+| Probiotics  | Yes     | No        | No      |
+| Antibiotics | Yes     | Yes       | Yes     |
+| Brufen      | No      | No        | Yes     |
++-------------+---------+-----------+---------+
+```
+
