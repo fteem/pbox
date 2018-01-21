@@ -17,7 +17,7 @@ var (
 
 	// Reminders
 	reminder          = app.Command("reminders", "Reminders operations")
-	reminderMorning   = reminder.Flag("morning", "Run in the morning").Short('v').Bool()
+	reminderMorning   = reminder.Flag("morning", "Run in the morning").Short('m').Bool()
 	reminderAfternoon = reminder.Flag("afternoon", "Run in the morning").Short('a').Bool()
 	reminderEvening   = reminder.Flag("evening", "Run in the morning").Short('e').Bool()
 
@@ -61,6 +61,10 @@ func main() {
 		}
 		fmt.Printf("Service \"%s\" uninstalled.\n", agentConfig.DisplayName)
 	case reminderAdd.FullCommand():
+		if !(*reminderMorning || *reminderAfternoon || *reminderEvening) {
+			app.Fatalf("Any (or all) of the --morning, --afternoon or --evening flags have to be present.")
+		}
+
 		reminder := pillbox.Reminder{
 			Body:      *reminderAddMedication,
 			Morning:   *reminderMorning,
