@@ -22,6 +22,11 @@ That should do it.
 
 ## Usage
 
+Pillbox is a package that allows you to set reminders for your medications. It
+doesn't allow setting exact consumption times per medication, but it splits all
+medication in three consumption times: morning (10:00h), afternoon (16:00h) and
+evening (20:00h).
+
 ### Installation
 
 To install the `pillboxd` daemon, you need to run:
