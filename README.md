@@ -41,6 +41,12 @@ of the daemon. The Property List (`.plist`) file will be located at `~/Library/L
 There's no need to load the agent since the command will take care of that.
 Post-install you should receive a notification that the daemon is started.
 
+To check if the agent is running, run:
+
+```
+pillbox status
+```
+
 ### Uninstallation
 
 To completely remove the daemon you can run:
