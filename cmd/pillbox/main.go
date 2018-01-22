@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
+	"strings"
 
 	"github.com/fteem/pbox"
 	"gopkg.in/alecthomas/kingpin.v2"
@@ -27,6 +29,9 @@ var (
 	reminderRemoveMedication = reminderRemove.Arg("medication", "Medication name").Required().String()
 
 	reminderList = reminder.Command("list", "See all reminders")
+
+	// Status
+	status = app.Command("status", "Daemon status")
 )
 
 func main() {
@@ -94,6 +99,18 @@ func main() {
 		err = store.DeleteReminder(removed)
 		if err != nil {
 			panic(err)
+		}
+	case status.FullCommand():
+		out, err := exec.Command("sh", "-c", "launchctl list | grep Pillbox").CombinedOutput()
+		if err != nil {
+			fmt.Println("Process not found, exiting.")
+			os.Exit(1)
+		}
+		parts := strings.Fields(string(out))
+		if parts[1] == "0" {
+			fmt.Println("Running.")
+		} else {
+			fmt.Println("Process active, with errors.")
 		}
 	}
 }
