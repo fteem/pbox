@@ -1,5 +1,7 @@
 # 💊 Pillbox
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/fteem/pbox)](https://goreportcard.com/report/github.com/fteem/pbox)
+
 ## What is this?
 
 This is a CLI app written in Golang, that can be used to set medications reminders.
