@@ -29,6 +29,11 @@ doesn't allow setting exact consumption times per medication, but it splits all
 medication in three consumption times: morning (10:00h), afternoon (16:00h) and
 evening (20:00h).
 
+The notifications are in fact OSX notifications, shown using
+[notify](https://github.com/martinlindhe/notify). They look like this:
+
+![alert](alert.png)
+
 ### Installation
 
 To install the `pillboxd` daemon, you need to run:
